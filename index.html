@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتبة إدارة الأعمال المتكاملة - المراجع العلمية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', sans-serif;
+        }
+        
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --light-color: #f8f9fa;
+            --dark-color: #34495e;
+            --border-color: #dee2e6;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a2530 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+        }
+        
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 2.8rem;
+            color: var(--secondary-color);
+            background: rgba(255,255,255,0.1);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            background: linear-gradient(to right, var(--secondary-color), #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .logo-text p {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        
+        .stats {
+            display: flex;
+            gap: 20px;
+            background: rgba(255,255,255,0.1);
+            padding: 12px 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: #bdc3c7;
+        }
+        
+        /* Navigation */
+        .main-nav {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 0.8rem;
+            margin-top: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+        
+        .nav-links a.active {
+            background: var(--secondary-color);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        }
+        
+        /* Search Section */
+        .search-section {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+        
+        .search-container {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
+        }
+        
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .search-box input:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+            outline: none;
+        }
+        
+        .search-btn {
+            background: linear-gradient(135deg, var(--secondary-color), #2980b9);
+            color: white;
+            border: none;
+            padding: 0 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .search-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+        }
+        
+        .advanced-search {
+            background: var(--light-color);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        
+        .filter-options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .filter-group select {
+            padding: 8px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: white;
+        }
+        
+        /* Categories */
+        .categories-section {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 1rem;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 2px solid transparent;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-color);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.15);
+        }
+        
+        .category-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .category-count {
+            background: var(--light-color);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--dark-color);
+            margin-top: 0.5rem;
+            display: inline-block;
+        }
+        
+        /* Main Content */
+        .main-container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+        
+        .sidebar-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .sidebar-section h3 i {
+            color: var(--secondary-color);
+        }
+        
+        .recent-books, .top-authors, .quick-links {
+            list-style: none;
+        }
+        
+        .recent-books li, .top-authors li, .quick-links li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--light-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .recent-books li:last-child, .top-authors li:last-child, .quick-links li:last-child {
+            border-bottom: none;
+        }
+        
+        .recent-books i {
+            color: var(--success-color);
+        }
+        
+        /* Books Grid */
+        .books-section {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--light-color);
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .view-controls {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .view-btn {
+            padding: 8px 15px;
+            background: var(--light-color);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            color: var(--dark-color);
+        }
+        
+        .view-btn.active {
+            background: var(--secondary-color);
+            color: white;
+        }
+        
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .book-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+        
+        .book-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .book-header {
+            background: linear-gradient(135deg, var(--secondary-color), #4ecdc4);
+            padding: 1.5rem;
+            color: white;
+            position: relative;
+        }
+        
+        .book-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .book-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+        
+        .book-info {
+            padding: 1.5rem;
+        }
+        
+        .book-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+        
+        .book-author {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .book-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #7f8c8d;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--light-color);
+        }
+        
+        .book-description {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            height: 60px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+        
+        .book-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary-color), #2980b9);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #2980b9, var(--secondary-color));
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: var(--light-color);
+            color: var(--dark-color);
+        }
+        
+        .btn-secondary:hover {
+            background: #e9ecef;
+        }
+        
+        /* References Section */
+        .references-section {
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 0 20px;
+        }
+        
+        .references-container {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+        
+        .references-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 1.5rem;
+        }
+        
+        .reference-card {
+            background: var(--light-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .reference-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .reference-details {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--primary-color), #1a2530);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+            }
+            
+            .books-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                text-align: center;
+            }
+            
+            .logo-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .stats {
+                justify-content: center;
+            }
+            
+            .nav-links {
+                justify-content: center;
+            }
+            
+            .search-box {
+                flex-direction: column;
+            }
+            
+            .search-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>المكتبة الإلكترونية لإدارة الأعمال</h1>
+                        <p>مرجعية شاملة لطلبة وأساتذة إدارة الأعمال</p>
+                    </div>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="booksCount">150+</div>
+                        <div class="stat-label">كتاب</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="authorsCount">80+</div>
+                        <div class="stat-label">مؤلف</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="downloadsCount">5K+</div>
+                        <div class="stat-label">تحميل</div>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="#"><i class="fas fa-book"></i> جميع الكتب</a></li>
+                    <li><a href="#"><i class="fas fa-newspaper"></i> الأبحاث</a></li>
+                    <li><a href="#"><i class="fas fa-graduation-cap"></i> الرسائل العلمية</a></li>
+                    <li><a href="#"><i class="fas fa-video"></i> محاضرات</a></li>
+                    <li><a href="#"><i class="fas fa-download"></i> أحدث الإضافات</a></li>
+                    <li><a href="#"><i class="fas fa-question-circle"></i> المساعدة</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 ابحث عن كتاب، مؤلف، كلمة مفتاحية، أو ISBN...">
+                <button class="search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i> بحث متقدم
+                </button>
+            </div>
+            <div class="advanced-search">
+                <div class="filter-options">
+                    <div class="filter-group">
+                        <label><i class="fas fa-filter"></i> التصنيف:</label>
+                        <select id="categoryFilter">
+                            <option value="all">جميع التخصصات</option>
+                            <option value="management">الإدارة العامة</option>
+                            <option value="marketing">التسويق</option>
+                            <option value="finance">المالية</option>
+                            <option value="hr">الموارد البشرية</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label><i class="fas fa-calendar"></i> السنة:</label>
+                        <select id="yearFilter">
+                            <option value="all">جميع السنوات</option>
+                            <option value="2023">2023 - 2024</option>
+                            <option value="2022">2021 - 2022</option>
+                            <option value="2020">2019 - 2020</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label><i class="fas fa-sort"></i> الترتيب:</label>
+                        <select id="sortFilter">
+                            <option value="recent">الأحدث</option>
+                            <option value="popular">الأكثر تحميلاً</option>
+                            <option value="rating">الأعلى تقييماً</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3><i class="fas fa-fire"></i> الأكثر تحميلاً</h3>
+                <ul class="recent-books">
+                    <li><i class="fas fa-download"></i> الإدارة الاستراتيجية</li>
+                    <li><i class="fas fa-download"></i> مبادئ التسويق الحديث</li>
+                    <li><i class="fas fa-download"></i> التحليل المالي المتقدم</li>
+                    <li><i class="fas fa-download"></i> سلوك المستهلك</li>
+                    <li><i class="fas fa-download"></i> إدارة الجودة الشاملة</li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3><i class="fas fa-user-tie"></i> أشهر المؤلفين</h3>
+                <ul class="top-authors">
+                    <li><i class="fas fa-user"></i> د. محمد عبد الغني</li>
+                    <li><i class="fas fa-user"></i> د. فاروق شرف</li>
+                    <li><i class="fas fa-user"></i> د. أحمد بدر</li>
+                    <li><i class="fas fa-user"></i> د. ناصر القحطاني</li>
+                    <li><i class="fas fa-user"></i> د. فاطمة العتيبي</li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3><i class="fas fa-link"></i> روابط سريعة</h3>
+                <ul class="quick-links">
+                    <li><a href="#"><i class="fas fa-external-link-alt"></i> المجلات العلمية</a></li>
+                    <li><a href="#"><i class="fas fa-external-link-alt"></i> قواعد البيانات</a></li>
+                    <li><a href="#"><i class="fas fa-external-link-alt"></i> المنظمات المهنية</a></li>
+                    <li><a href="#"><i class="fas fa-external-link-alt"></i> المؤتمرات</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Books Section -->
+        <main class="books-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-books"></i> أحدث المراجع والكتب
+                </h2>
+                <div class="view-controls">
+                    <button class="view-btn active"><i class="fas fa-th-large"></i></button>
+                    <button class="view-btn"><i class="fas fa-list"></i></button>
+                </div>
+            </div>
+
+            <div class="books-grid" id="booksContainer">
+                <!-- سيتم تعبئة الكتب هنا -->
+            </div>
+        </main>
+    </div>
+
+    <!-- References Section -->
+    <section class="references-section" id="references">
+        <div class="references-container">
+            <h2 class="section-title" style="border: none; padding: 0;">
+                <i class="fas fa-bookmark"></i> المراجع الإضافية والمصادر
+            </h2>
+            
+            <div class="references-grid">
+                <div class="reference-card">
+                    <h3 class="reference-title">المجلات العلمية المحكمة</h3>
+                    <p class="reference-details">
+                        - مجلة إدارة الأعمال العربية<br>
+                        - المجلة الدولية للأبحاث الإدارية<br>
+                        - Journal of Business Research<br>
+                        - Harvard Business Review (Arabic)
+                    </p>
+                </div>
+                
+                <div class="reference-card">
+                    <h3 class="reference-title">قواعد البيانات العلمية</h3>
+                    <p class="reference-details">
+                        - قاعدة Emerald للإدارة<br>
+                        - ScienceDirect للأبحاث<br>
+                        - JSTOR للمجلات العلمية<br>
+                        - SSRN للأوراق البحثية
+                    </p>
+                </div>
+                
+                <div class="reference-card">
+                    <h3 class="reference-title">المواقع التعليمية</h3>
+                    <p class="reference-details">
+                        - موقع أكاديمية إدارة الأعمال<br>
+                        - منصة edX للتعليم الإداري<br>
+                        - Coursera للتخصصات الإدارية<br>
+                        - Khan Academy بالعربية
+                    </p>
+                </div>
+                
+                <div class="reference-card">
+                    <h3 class="reference-title">المنظمات المهنية</h3>
+                    <p class="reference-details">
+                        - جمعية الإدارة العربية<br>
+                        - المعهد العربي للتخطيط<br>
+                        - اتحاد المدربين العرب<br>
+                        - غرفة التجارة العالمية
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4><i class="fas fa-info-circle"></i> عن المكتبة</h4>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-left"></i> من نحن</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-left"></i> رسالتنا</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-left"></i> أهدافنا</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-left"></i> الشركاء</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4><i class="fas fa-book-reader"></i> الموارد</h4>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-left"></i> الكتب الإلكترونية</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-left"></i> الأبحاث العلمية</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-left"></i> الرسائل الجامعية</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-left"></i> الدراسات السابقة</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4><i class="fas fa-hands-helping"></i> الدعم</h4>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-left"></i> الأسئلة الشائعة</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-left"></i> دليل الاستخدام</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-left"></i> الإبلاغ عن مشكلة</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4><i class="fas fa-share-alt"></i> التواصل</h4>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fab fa-twitter"></i> تويتر</a></li>
+                    <li><a href="#"><i class="fab fa-linkedin"></i> لينكد إن</a></li>
+                    <li><a href="#"><i class="fab fa-telegram"></i> تلغرام</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> البريد الإلكتروني</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2024 المكتبة الإلكترونية لإدارة الأعمال. جميع الحقوق محفوظة.</p>
+            <p>تم التطوير لدعم البحث العلمي والدراسات الأكاديمية في مجال إدارة الأعمال</p>
+        </div>
+    </footer>
+
+    <script>
+        // قاعدة بيانات الكتب الموسعة
+        const businessBooks = [
+            {
+                id: 1,
+                title: "الإدارة الاستراتيجية: المفاهيم والتطبيقات",
+                author: "د. محمد عبد الغني حسن",
+                year: 2023,
+                category: "الإدارة العامة",
+                pages: 450,
+                rating: 4.8,
+                downloads: 1250,
+                description: "كتاب شامل يتناول مفاهيم الإدارة الاستراتيجية مع أمثلة تطبيقية من البيئة العربية.",
+                type: "كتاب أكاديمي",
+                isbn: "978-603-01-1234-5",
+                publisher: "دار الجامعة للنشر"
+            },
+            {
+                id: 2,
+                title: "مبادئ التسويق الحديث",
+                author: "د. فاروق عبد الحليم شرف",
+                year: 2022,
+                category: "التسويق",
+                pages: 520,
+                rating: 4.7,
+                downloads: 980,
+                description: "يغطي مفاهيم التسويق المعاصرة مع التركيز على التسويق الرقمي والتسويق عبر وسائل التواصل.",
+                type: "كتاب منهجي",
+                isbn: "978-603-02-2345-6",
+                publisher: "دار الشروق"
+            },
+            {
+                id: 3,
+                title: "التحليل المالي المتقدم وإدارة المخاطر",
+                author: "د. أحمد محمد بدر",
+                year: 2023,
+                category: "المالية",
+                pages: 380,
+                rating: 4.9,
+                downloads: 1100,
+                description: "كتاب متخصص في التحليل المالي وإدارة المخاطر المالية في المؤسسات.",
+                type: "كتاب متخصص",
+                isbn: "978-603-03-3456-7",
+                publisher: "المكتب العربي للمعارف"
+            },
+            {
+                id: 4,
+                title: "ريادة الأعمال والابتكار في الوطن العربي",
+                author: "د. ناصر القحطاني",
+                year: 2022,
+                category: "ريادة الأعمال",
+                pages: 320,
+                rating: 4.6,
+                downloads: 850,
+                description: "دراسة شاملة لريادة الأعمال في العالم العربي مع حالات عملية ناجحة.",
+                type: "دراسة ميدانية",
+                isbn: "978-603-04-4567-8",
+                publisher: "مركز الخليج للأبحاث"
+            },
+            {
+                id: 5,
+                title: "إدارة الموارد البشرية الاستراتيجية",
+                author: "د. فاطمة العتيبي",
+                year: 2023,
+                category: "الموارد البشرية",
+                pages: 400,
+                rating: 4.7,
+                downloads: 920,
+                description: "كتاب يركز على الجوانب الاستراتيجية لإدارة الموارد البشرية في العصر الحديث.",
+                type: "كتاب أكاديمي",
+                isbn: "978-603-05-5678-9",
+                publisher: "دار الفكر العربي"
+            },
+            {
+                id: 6,
+                title: "سلوك المستهلك: مدخل تحليلي",
+                author: "د. هناء الصاعدي",
+                year: 2022,
+                category: "التسويق",
+                pages: 350,
+                rating: 4.5,
+                downloads: 750,
+                description: "تحليل متعمق لسلوك المستهلك وعوامل التأثير في القرار الشرائي.",
+                type: "كتاب بحثي",
+                isbn: "978-603-06-6789-0",
+                publisher: "دار الأصالة"
+            },
+            {
+                id: 7,
+                title: "التخطيط الاستراتيجي في المنظمات غير الربحية",
+                author: "د. خالد الحمود",
+                year: 2023,
+                category: "الإدارة العامة",
+                pages: 280,
+                rating: 4.4,
+                downloads: 620,
+                description: "دليل عملي للتخطيط الاستراتيجي في المؤسسات الخيرية والخدمية.",
+                type: "دليل عملي",
+                isbn: "978-603-07-7890-1",
+                publisher: "مؤسسة الوقف العلمي"
+            },
+            {
+                id: 8,
+                title: "محاسبة التكاليف واتخاذ القرارات",
+                author: "د. سامي الشعيبي",
+                year: 2022,
+                category: "المالية",
+                pages: 420,
+                rating: 4.8,
+                downloads: 890,
+                description: "كتاب يربط بين محاسبة التكاليف واتخاذ القرارات الإدارية.",
+                type: "كتاب منهجي",
+                isbn: "978-603-08-8901-2",
+                publisher: "دار الزهراء"
+            },
+            {
+                id: 9,
+                title: "إدارة الجودة الشاملة: الأسس والتطبيقات",
+                author: "د. عبد الله المهنا",
+                year: 2023,
+                category: "الإدارة العامة",
+                pages: 360,
+                rating: 4.6,
+                downloads: 780,
+                description: "كتاب شامل لمفاهيم إدارة الجودة وتطبيقاتها العملية.",
+                type: "كتاب أكاديمي",
+                isbn: "978-603-09-9012-3",
+                publisher: "دار العلم"
+            },
+            {
+                id: 10,
+                title: "التمويل الدولي وإدارة المخاطر",
+                author: "د. فهد الحويماني",
+                year: 2022,
+                category: "المالية",
+                pages: 480,
+                rating: 4.7,
+                downloads: 950,
+                description: "كتاب متخصص في التمويل الدولي وإدارة مخاطر الصرف الأجنبي.",
+                type: "كتاب متخصص",
+                isbn: "978-603-10-0123-4",
+                publisher: "دار المستقبل"
+            },
+            {
+                id: 11,
+                title: "التسويق الرقمي: الاستراتيجيات والأدوات",
+                author: "د. خالد العوفي",
+                year: 2023,
+                category: "التسويق",
+                pages: 410,
+                rating: 4.9,
+                downloads: 1300,
+                description: "دليل شامل لاستراتيجيات التسويق الرقمي وأحدث الأدوات والتقنيات.",
+                type: "دليل عملي",
+                isbn: "978-603-11-1234-5",
+                publisher: "دار التقنية"
+            },
+            {
+                id: 12,
+                title: "القيادة الإدارية في القرن الحادي والعشرين",
+                author: "د. فؤاد نجيب",
+                year: 2022,
+                category: "الإدارة العامة",
+                pages: 330,
+                rating: 4.5,
+                downloads: 710,
+                description: "كتاب يركز على مهارات القيادة الحديثة في بيئة العمل المتغيرة.",
+                type: "كتاب تطويري",
+                isbn: "978-603-12-2345-6",
+                publisher: "دار القيادة"
+            }
+        ];
+
+        // عرض الكتب
+        function renderBooks(booksToRender) {
+            const container = document.getElementById('booksContainer');
+            container.innerHTML = '';
+            
+            booksToRender.forEach(book => {
+                const bookCard = document.createElement('div');
+                bookCard.className = 'book-card';
+                
+                // ألوان مختلفة حسب التصنيف
+                const categoryColors = {
+                    'الإدارة العامة': '#3498db',
+                    'التسويق': '#2ecc71',
+                    'المالية': '#e74c3c',
+                    'ريادة الأعمال': '#9b59b6',
+                    'الموارد البشرية': '#f39c12'
+                };
+                
+                const headerColor = categoryColors[book.category] || '#3498db';
+                
+                bookCard.innerHTML = `
+                    <div class="book-header" style="background: linear-gradient(135deg, ${headerColor}, ${adjustColor(headerColor, -30)})">
+                        <div class="book-badge">${book.category}</div>
+                        <div class="book-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">${book.title}</h3>
+                        <div class="book-author">
+                            <i class="fas fa-user-edit"></i> ${book.author}
+                        </div>
+                        <div class="book-meta">
+                            <span><i class="fas fa-calendar"></i> ${book.year}</span>
+                            <span><i class="fas fa-file"></i> ${book.pages} صفحة</span>
+                            <span><i class="fas fa-star"></i> ${book.rating}/5</span>
+                        </div>
+                        <p class="book-description">${book.description}</p>
+                        <div class="book-meta">
+                            <span><i class="fas fa-download"></i> ${book.downloads} تحميل</span>
+                            <span><i class="fas fa-book"></i> ${book.type}</span>
+                        </div>
+                        <div class="book-actions">
+                            <button class="btn btn-primary" onclick="downloadBook(${book.id})">
+                                <i class="fas fa-download"></i> تحميل
+                            </button>
+                            <button class="btn btn-secondary" onclick="showBookDetails(${book.id})">
+                                <i class="fas fa-info-circle"></i> تفاصيل
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(bookCard);
+            });
+            
+            // تحديث الإحصائيات
+            updateStatistics(booksToRender);
+        }
+
+        // وظيفة لتعديل الألوان
+        function adjustColor(color, amount) {
+            let usePound = false;
+            if (color[0] == "#") {
+                color = color.slice(1);
+                usePound = true;
+            }
+            
+            const num = parseInt(color, 16);
+            let r = (num >> 16) + amount;
+            if (r > 255) r = 255;
+            else if (r < 0) r = 0;
+            
+            let b = ((num >> 8) & 0x00FF) + amount;
+            if (b > 255) b = 255;
+            else if (b < 0) b = 0;
+            
+            let g = (num & 0x0000FF) + amount;
+            if (g > 255) g = 255;
+            else if (g < 0) g = 0;
+            
+            return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16).padStart(6, '0');
+        }
+
+        // تحديث الإحصائيات
+        function updateStatistics(books) {
+            const booksCount = books.length;
+            const authors = [...new Set(books.map(book => book.author))];
+            const downloadsCount = books.reduce((sum, book) => sum + book.downloads, 0);
+            
+            document.getElementById('booksCount').textContent = booksCount + '+';
+            document.getElementById('authorsCount').textContent = authors.length + '+';
+            document.getElementById('downloadsCount').textContent = (downloadsCount / 1000).toFixed(1) + 'K+';
+        }
+
+        // تحميل الكتاب
+        function downloadBook(bookId) {
+            const book = businessBooks.find(b => b.id === bookId);
+            if (book) {
+                // زيادة عدد التحميلات
+                book.downloads++;
+                
+                // عرض رسالة تحميل
+                Swal.fire({
+                    title: 'جاري التحميل',
+                    text: `كتاب "${book.title}"`,
+                    icon: 'info',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+                
+                // محاكاة التحميل
+                setTimeout(() => {
+                    Swal.fire({
+                        title: 'تم التحميل بنجاح',
+                        text: `تم تحميل ${book.title}`,
+                        icon: 'success',
+                        confirmButtonText: 'حسناً'
+                    });
+                    
+                    // تحديث العرض
+                    renderBooks(businessBooks);
+                }, 2000);
+            }
+        }
+
+        // عرض تفاصيل الكتاب
+        function showBookDetails(bookId) {
+            const book = businessBooks.find(b => b.id === bookId);
+            if (book) {
+                Swal.fire({
+                    title: book.title,
+                    html: `
+                        <div style="text-align: right; direction: rtl;">
+                            <p><strong>المؤلف:</strong> ${book.author}</p>
+                            <p><strong>التصنيف:</strong> ${book.category}</p>
+                            <p><strong>السنة:</strong> ${book.year}</p>
+                            <p><strong>عدد الصفحات:</strong> ${book.pages}</p>
+                            <p><strong>التقييم:</strong> ${book.rating}/5</p>
+                            <p><strong>الوصف:</strong> ${book.description}</p>
+                            <p><strong>الناشر:</strong> ${book.publisher}</p>
+                            <p><strong>ISBN:</strong> ${book.isbn}</p>
+                            <p><strong>عدد التحميلات:</strong> ${book.downloads}</p>
+                        </div>
+                    `,
+                    icon: 'info',
+                    confirmButtonText: 'إغلاق',
+                    showCancelButton: true,
+                    cancelButtonText: 'تحميل الكتاب'
+                }).then((result) => {
+                    if (result.dismiss === Swal.DismissReason.cancel) {
+                        downloadBook(bookId);
+                    }
+                });
+            }
+        }
+
+        // البحث والتصفية
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const category = document.getElementById('categoryFilter').value;
+            const year = document.getElementById('yearFilter').value;
+            const sort = document.getElementById('sortFilter').value;
+            
+            let filteredBooks = businessBooks;
+            
+            // تصفية حسب البحث
+            if (searchTerm.trim() !== '') {
+                filteredBooks = filteredBooks.filter(book => 
+                    book.title.toLowerCase().includes(searchTerm) || 
+                    book.author.toLowerCase().includes(searchTerm) ||
+                    book.description.toLowerCase().includes(searchTerm) ||
+                    book.isbn.toLowerCase().includes(searchTerm)
+                );
+            }
+            
+            // تصفية حسب التصنيف
+            if (category !== 'all') {
+                const categoryMap = {
+                    'management': 'الإدارة العامة',
+                    'marketing': 'التسويق',
+                    'finance': 'المالية',
+                    'hr': 'الموارد البشرية'
+                };
+                filteredBooks = filteredBooks.filter(book => 
+                    book.category === categoryMap[category]
+                );
+            }
+            
+            // تصفية حسب السنة
+            if (year !== 'all') {
+                filteredBooks = filteredBooks.filter(book => 
+                    book.year >= parseInt(year)
+                );
+            }
+            
+            // الترتيب
+            switch(sort) {
+                case 'recent':
+                    filteredBooks.sort((a, b) => b.year - a.year);
+                    break;
+                case 'popular':
+                    filteredBooks.sort((a, b) => b.downloads - a.downloads);
+                    break;
+                case 'rating':
+                    filteredBooks.sort((a, b) => b.rating - a.rating);
+                    break;
+            }
+            
+            renderBooks(filteredBooks);
+        }
+
+        // أحداث البحث
+        document.getElementById('searchBtn').addEventListener('click', performSearch);
+        document.getElementById('searchInput').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        document.getElementById('categoryFilter').addEventListener('change', performSearch);
+        document.getElementById('yearFilter').addEventListener('change', performSearch);
+        document.getElementById('sortFilter').addEventListener('change', performSearch);
+
+        // تهيئة المكتبة عند التحميل
+        document.addEventListener('DOMContentLoaded', function() {
+            renderBooks(businessBooks);
+            
+            // إضافة SweetAlert للتنبيهات
+            const sweetAlertScript = document.createElement('script');
+            sweetAlertScript.src = 'https://cdn.jsdelivr.net/npm/sweetalert2@11';
+            document.head.appendChild(sweetAlertScript);
+        });
+
+        // عرض رسالة ترحيب
+        setTimeout(() => {
+            if (!localStorage.getItem('welcomeShown')) {
+                Swal.fire({
+                    title: 'مرحباً بكم في مكتبة إدارة الأعمال',
+                    text: 'مكتبة شاملة لطلبة وأساتذة إدارة الأعمال تحتوي على أحدث المراجع والكتب العلمية',
+                    icon: 'info',
+                    confirmButtonText: 'ابدأ الاستكشاف'
+                });
+                localStorage.setItem('welcomeShown', 'true');
+            }
+        }, 1000);
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
